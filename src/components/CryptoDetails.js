@@ -43,7 +43,7 @@ const CryptoDetails = () => {
   const stats = [
     {
       title: "Price to USD",
-      value: `$ ${cryptoDetails.price && millify(cryptoDetails.price)}`,
+      value: `$ ${cryptoDetails.price && cryptoDetails.price.substring(0, 9)}`,
       icon: <DollarCircleOutlined />,
     },
     { title: "Rank", value: cryptoDetails.rank, icon: <NumberOutlined /> },
@@ -120,7 +120,7 @@ const CryptoDetails = () => {
       <LineChart
         coinHistory={coinHistory}
         coinName={cryptoDetails.name}
-        currentPrice={millify(cryptoDetails.price)}
+        currentPrice={cryptoDetails.price.substring(0, 8)}
       />
       <Col className="stats-container">
         <Col className="coin-value-statistics">
